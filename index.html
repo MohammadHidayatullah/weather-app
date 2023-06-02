@@ -1,0 +1,203 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Team 4</title>
+    <!-- Link Styles -->
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/weather.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo_details">
+        <i class="bx bxl-google-cloud icon"></i>
+        <div class="logo_name">Weather App</div>
+        <i class="bx bx-menu" id="btn"></i>
+      </div>
+      <ul class="nav-list">
+        <li>
+          <a class="item-sidebar1 active" href="#home">
+            <i class="bx bx-grid-alt" id="home-btn"></i>
+            <span class="link_name">Home</span>
+          </a>
+          <span class="tooltip">Home</span>
+        </li>
+        <li>
+          <a class="item-sidebar2" href="#weather" id="weather-btn">
+            <i class="bx bx-cloud-snow"></i>
+            <span class="link_name">Weather</span>
+          </a>
+          <span class="tooltip">Weather</span>
+        </li>
+        <li>
+          <a class="item-sidebar3" href="#team">
+            <i class="bx bx-user"></i>
+            <span class="link_name">Team Member</span>
+          </a>
+          <span class="tooltip">Team Member</span>
+        </li>
+
+        <li class="profile">
+          <div class="profile_details">
+            <div class="profile_content">
+              <div class="name">Team</div>
+              <div class="designation">Four</div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <section class="content-section">
+      <div id="home"></div>
+      <div id="weather">
+        <div class="current-info">
+          <div class="date-container">
+            <div class="time" id="time">12:30 <span id="am-pm">PM</span></div>
+            <div class="date" id="date">Monday, 25 May</div>
+          </div>
+          <h2>Your Intelligent Weather Assistant</h2>
+          <div class="place-container">
+            <div class="time-zone" id="time-zone">Asia/Kolkata</div>
+            <div id="country" class="country">IN</div>
+          </div>
+        </div>
+        <div class="others" id="current-weather-items"></div>
+
+        <div class="future-forecast">
+          <div class="today" id="current-temp">
+            <img
+              src="http://openweathermap.org/img/wn/10d@2x.png"
+              alt="weather icon"
+              class="w-icon"
+            />
+            <div class="other">
+              <div class="day">Monday</div>
+              <div class="temp">Night - 25.6&#176; C</div>
+              <div class="temp">Day - 35.6&#176; C</div>
+            </div>
+          </div>
+
+          <div class="weather-forecast" id="weather-forecast">
+            <div class="weather-forecast-item">
+              <div class="day">Tue</div>
+              <img
+                src="http://openweathermap.org/img/wn/10d@2x.png"
+                alt="weather icon"
+                class="w-icon"
+              />
+              <div class="temp">Night - 25.6&#176; C</div>
+              <div class="temp">Day - 35.6&#176; C</div>
+            </div>
+            <div class="weather-forecast-item">
+              <div class="day">Wed</div>
+              <img
+                src="http://openweathermap.org/img/wn/10d@2x.png"
+                alt="weather icon"
+                class="w-icon"
+              />
+              <div class="temp">Night - 25.6&#176; C</div>
+              <div class="temp">Day - 35.6&#176; C</div>
+            </div>
+            <div class="weather-forecast-item">
+              <div class="day">Thur</div>
+              <img
+                src="http://openweathermap.org/img/wn/10d@2x.png"
+                alt="weather icon"
+                class="w-icon"
+              />
+              <div class="temp">Night - 25.6&#176; C</div>
+              <div class="temp">Day - 35.6&#176; C</div>
+            </div>
+            <div class="weather-forecast-item">
+              <div class="day">Fri</div>
+              <img
+                src="http://openweathermap.org/img/wn/10d@2x.png"
+                alt="weather icon"
+                class="w-icon"
+              />
+              <div class="temp">Night - 25.6&#176; C</div>
+              <div class="temp">Day - 35.6&#176; C</div>
+            </div>
+            <div class="weather-forecast-item">
+              <div class="day">Sat</div>
+              <img
+                src="http://openweathermap.org/img/wn/10d@2x.png"
+                alt="weather icon"
+                class="w-icon"
+              />
+              <div class="temp">Night - 25.6&#176; C</div>
+              <div class="temp">Day - 35.6&#176; C</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="team">Team</div>
+    </section>
+    <!-- Scripts -->
+    <script src="assets/weather.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="assets/script.js"></script>
+    <script>
+      fetch("./home.html")
+        .then((response) => response.text())
+        .then((html) => {
+          document.getElementById("home").innerHTML = html;
+        });
+
+      fetch("./team.html")
+        .then((response) => response.text())
+        .then((html) => {
+          document.getElementById("team").innerHTML = html;
+        });
+
+      const itemSidebar1 = document.querySelector(".item-sidebar1");
+      const itemSidebar2 = document.querySelector(".item-sidebar2");
+      const itemSidebar3 = document.querySelector(".item-sidebar3");
+
+      const home = document.querySelector("#home");
+      const team = document.querySelector("#team");
+      const weather = document.querySelector("#weather");
+
+      home.style.display = "block";
+      team.style.display = "none";
+      weather.style.display = "none";
+      
+      itemSidebar1.addEventListener("click", function () {
+        itemSidebar1.classList.toggle("active");
+        itemSidebar2.classList.remove("active");
+        itemSidebar3.classList.remove("active");
+        home.style.display = "block";
+        team.style.display = "none";
+        weather.style.display = "none";
+      });
+
+      itemSidebar2.addEventListener("click", function () {
+        itemSidebar2.classList.toggle("active");
+        itemSidebar1.classList.remove("active");
+        itemSidebar3.classList.remove("active");
+        home.style.display = "none";
+        team.style.display = "none";
+        weather.style.display = "block";
+      });
+      
+      itemSidebar3.addEventListener("click", function () {
+        itemSidebar3.classList.toggle("active");
+        itemSidebar1.classList.remove("active");
+        itemSidebar2.classList.remove("active");
+        home.style.display = "none";
+        weather.style.display = "none";
+        team.style.display = "block";
+      });
+    </script>
+  </body>
+</html>

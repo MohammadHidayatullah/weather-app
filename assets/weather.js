@@ -3,6 +3,7 @@
 const timeEl = document.getElementById("time");
 const dateEl = document.getElementById("date");
 const currentWeatherItemsEl = document.getElementById("current-weather-items");
+const currentTodayItemEl = document.getElementById("current-today-items");
 const timezone = document.getElementById("time-zone");
 const countryEl = document.getElementById("country");
 const weatherForecastEl = document.getElementById("weather-forecast");
@@ -77,10 +78,11 @@ function showWeatherData(data) {
   timezone.innerHTML = data.timezone;
   countryEl.innerHTML = data.lat + "N " + data.lon + "E";
 
-  currentWeatherItemsEl.innerHTML = `<div class="weather-item">
-        <div>Humidity</div>
-        <div>${humidity}%</div>
-    </div>
+  currentWeatherItemsEl.innerHTML = `
+  <div class="weather-item">
+      <div>Humidity</div>
+      <div>${humidity}%</div>
+  </div>
     <div class="weather-item">
         <div>Pressure</div>
         <div>${pressure}</div>
@@ -89,32 +91,32 @@ function showWeatherData(data) {
         <div>Wind Speed</div>
         <div>${wind_speed}</div>
     </div>
-
-    <div class="weather-item">
-        <div>Sunrise</div>
-        <div>${window.moment(sunrise * 1000).format("HH:mm a")}</div>
-    </div>
-    <div class="weather-item">
-        <div>Sunset</div>
-        <div>${window.moment(sunset * 1000).format("HH:mm a")}</div>
-    </div>
-    
-    
     `;
+
+  currentTodayItemEl.innerHTML = `
+<div class="weather-item">
+    <div>Sunrise</div>
+    <div>${window.moment(sunrise * 1000).format("HH:mm a")}</div>
+</div>
+<div class="weather-item">
+    <div>Sunset</div>
+    <div>${window.moment(sunset * 1000).format("HH:mm a")}</div>
+</div>
+`;
 
   let otherDayForcast = "";
   data.daily.forEach((day, idx) => {
     if (idx == 0) {
       currentTempEl.innerHTML = `
+      <div class="img">
             <img src="http://openweathermap.org/img/wn//${
               day.weather[0].icon
             }@4x.png" alt="weather icon" class="w-icon">
+            </div>
             <div class="other">
-                <div class="day">${window
-                  .moment(day.dt * 1000)
-                  .format("dddd")}</div>
-                <div class="temp">Night - ${day.temp.night}&#176;C</div>
-                <div class="temp">Day - ${day.temp.day}&#176;C</div>
+                <div class="day">Today</div>
+                <div class="temp">Night ${day.temp.night}&#176;C</div>
+                <div class="temp">Day ${day.temp.day}&#176;C</div>
             </div>
             
             `;

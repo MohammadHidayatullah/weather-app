@@ -2,7 +2,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 :root {
-  --color-default: #fa7f29;
+  --color-primary: #fa7f29;
   --color-second: #0067ac;
   --color-white: #fff;
   --color-body: #1a2841;
@@ -46,7 +46,7 @@
 .place-container .time-zone {
   font-size: 14px;
   font-weight: 100;
-  color: var(--color-default);
+  color: var(--color-primary);
 }
 
 .place-container .country {
@@ -54,16 +54,38 @@
   font-weight: 400;
 }
 
-.others {
-  display: flex;
-  flex-direction: column;
-  background: var(--color-default);
-  padding: 20px;
-  border-radius: 10px;
-  margin: 10px 0;
+.top-info {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  margin: 20px 0;
 }
 
-.others .weather-item {
+.wind {
+  display: flex;
+  flex-direction: column;
+  background-image: url("./images/background-2.jpg");
+  background-size: cover;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.wind .weather-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sun {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-white);
+  border: var(--color-primary) 1px solid;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.sun .weather-item {
   display: flex;
   justify-content: space-between;
 }
@@ -79,32 +101,49 @@
   align-items: center;
   justify-content: center;
   overflow-y: hidden;
-  box-shadow: #3c3c44 0px -1px 10px;
-    border-radius: 10px;
+  border: var(--color-primary) 1px solid;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
-.future-forecast .today {
+.today {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #eee;
   border-radius: 10px;
   padding: 15px;
-  padding-right: 40px;
   border-radius: 10px;
-  background: var(--color-default)
+  background-image: url("./images/background-1.jpg");
+  background-size: cover;
+  gap: 20px;
 }
 
-.future-forecast .today .day {
+.today .img {
+  width: fit-content;
+  background-color: var(--color-primary);
+  opacity: 0.9;
+  border-radius: 50%;
+}
+
+.today .day {
   padding: 5px 15px;
   background: var(--color-white);
   border-radius: 50px;
   text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-primary);
 }
 
-.future-forecast .today .temp {
-  font-size: 18px;
-  padding-top: 15px;
+.today .temp {
+  padding: 2px;
+  background-color: var(--color-primary);
+  opacity: 0.9;
+  color: var(--color-white);
+  border-radius: 8px;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 10px;
 }
 
 .future-forecast .weather-forecast {
@@ -171,11 +210,19 @@
     font-size: 20px;
   }
 
-  .others {
+  .wind {
     padding: 12px;
   }
 
-  .others .weather-item {
+  .wind .weather-item {
+    font-size: 14px;
+  }
+
+  .sun {
+    padding: 12px;
+  }
+
+  .sun .weather-item {
     font-size: 14px;
   }
 }

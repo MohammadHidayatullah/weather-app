@@ -66,10 +66,27 @@
             <div id="country" class="country">IN</div>
           </div>
         </div>
-        <div class="others" id="current-weather-items"></div>
+        <div class="top-info">
+          <div class="today" id="current-temp">
+            <div class="img">
+              <img
+                src="http://openweathermap.org/img/wn/10d@2x.png"
+                alt="weather icon"
+                class="w-icon"
+              />
+            </div>
+            <div class="other">
+              <div class="day">Today</div>
+              <div class="temp">Night 25.6&#176; C</div>
+              <div class="temp">Day 35.6&#176; C</div>
+            </div>
+          </div>
+          <div class="wind" id="current-weather-items"></div>
+          <div class="sun" id="current-today-items"></div>
+        </div>
 
         <div class="future-forecast">
-          <div class="today" id="current-temp">
+          <!-- <div class="today" id="current-temp">
             <img
               src="http://openweathermap.org/img/wn/10d@2x.png"
               alt="weather icon"
@@ -80,7 +97,7 @@
               <div class="temp">Night - 25.6&#176; C</div>
               <div class="temp">Day - 35.6&#176; C</div>
             </div>
-          </div>
+          </div> -->
 
           <div class="weather-forecast" id="weather-forecast">
             <div class="weather-forecast-item">
@@ -171,7 +188,7 @@
       home.style.display = "block";
       team.style.display = "none";
       weather.style.display = "none";
-      
+
       itemSidebar1.addEventListener("click", function () {
         itemSidebar1.classList.toggle("active");
         itemSidebar2.classList.remove("active");
@@ -189,7 +206,7 @@
         team.style.display = "none";
         weather.style.display = "block";
       });
-      
+
       itemSidebar3.addEventListener("click", function () {
         itemSidebar3.classList.toggle("active");
         itemSidebar1.classList.remove("active");

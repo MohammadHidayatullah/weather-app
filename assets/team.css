@@ -1,0 +1,74 @@
+/** @format */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+:root {
+  --color-primary: #fa7f29;
+  --color-second: #4e4e4e;
+  --color-white: #fff;
+  --color-body: #1a2841;
+  --color-light: #e0e0e0;
+}
+
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  color: var(--color-body);
+}
+
+#team .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#team .header h2 {
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--color-primary);
+}
+
+#team .header img {
+  height: 40px;
+  width: 40px;
+}
+
+#team .wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+#team .wrapper .item {
+  width: fit-content;
+  margin-bottom: 20px;
+}
+
+#team .wrapper .item img {
+  background: linear-gradient(
+    180deg,
+    rgba(217, 217, 217, 0) 20%,
+    #fa7f29 60.62%
+  );
+}
+
+#team .wrapper .item img {
+  height: 250px;
+}
+
+#team .wrapper .item h6 {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+#team .wrapper .item p {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-primary);
+}

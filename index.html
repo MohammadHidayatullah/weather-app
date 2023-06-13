@@ -53,6 +53,35 @@
         </li>
       </ul>
     </div>
+
+    <div class="bottom-bar">
+      <ul class="nav-list">
+        <li>
+          <a
+            class="item-sidebar-mobile1 active"
+            href="#home"
+            onclick="directHome()"
+          >
+            <i class="bx bx-grid-alt" id="home-btn"></i>
+          </a>
+        </li>
+        <li>
+          <a
+            class="item-sidebar-mobile2"
+            href="#weather"
+            id="weather-btn"
+            onclick="directWeather()"
+          >
+            <i class="bx bx-cloud-snow"></i>
+          </a>
+        </li>
+        <li>
+          <a class="item-sidebar-mobile3" href="#team" onclick="directTeam()">
+            <i class="bx bx-user"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
     <section class="content-section">
       <div id="home"></div>
       <div id="weather">
@@ -67,6 +96,22 @@
             <div id="country" class="country">IN</div>
           </div>
         </div>
+        <div class="current-info-mobile">
+          <h2>Your Intelligent Weather Assistant</h2>
+          <div class="wrapper">
+            <div class="date-container">
+              <div class="time" id="time-mobile">
+                12:30 <span id="am-pm">PM</span>
+              </div>
+              <div class="date" id="date-mobile">Monday, 25 May</div>
+            </div>
+            <div class="place-container">
+              <div class="time-zone" id="time-zone-mobile">Asia/Kolkata</div>
+              <div id="country-mobile" class="country">IN</div>
+            </div>
+          </div>
+        </div>
+
         <div class="top-info">
           <div class="wrapper">
             <div class="today" id="current-temp">
@@ -213,8 +258,11 @@
         });
 
       const itemSidebar1 = document.querySelector(".item-sidebar1");
+      const itemSidebarMobile1 = document.querySelector(".item-sidebar-mobile1");
       const itemSidebar2 = document.querySelector(".item-sidebar2");
+      const itemSidebarMobile2 = document.querySelector(".item-sidebar-mobile2");
       const itemSidebar3 = document.querySelector(".item-sidebar3");
+      const itemSidebarMobile3 = document.querySelector(".item-sidebar-mobile3");
 
       const home = document.querySelector("#home");
       const team = document.querySelector("#team");
@@ -250,6 +298,33 @@
         weather.style.display = "none";
         team.style.display = "block";
       });
+
+      function directHome() {
+        itemSidebarMobile1.classList.toggle("active");
+        itemSidebarMobile2.classList.remove("active");
+        itemSidebarMobile3.classList.remove("active");
+        home.style.display = "block";
+        team.style.display = "none";
+        weather.style.display = "none";
+      }
+
+      function directWeather() {
+        itemSidebarMobile2.classList.toggle("active");
+        itemSidebarMobile1.classList.remove("active");
+        itemSidebarMobile3.classList.remove("active");
+        home.style.display = "none";
+        team.style.display = "none";
+        weather.style.display = "block";
+      }
+
+      function directTeam() {
+        itemSidebarMobile3.classList.toggle("active");
+        itemSidebarMobile1.classList.remove("active");
+        itemSidebarMobile2.classList.remove("active");
+        home.style.display = "none";
+        weather.style.display = "none";
+        team.style.display = "block";
+      }
     </script>
   </body>
 </html>

@@ -7,6 +7,7 @@
     <!-- Link Styles -->
     <link rel="stylesheet" href="assets/style.css" />
     <link rel="stylesheet" href="assets/weather.css" />
+    <link rel="stylesheet" href="assets/team.css" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
@@ -52,6 +53,35 @@
         </li>
       </ul>
     </div>
+
+    <div class="bottom-bar">
+      <ul class="nav-list">
+        <li>
+          <a
+            class="item-sidebar-mobile1 active"
+            href="#home"
+            onclick="directHome()"
+          >
+            <i class="bx bx-grid-alt" id="home-btn"></i>
+          </a>
+        </li>
+        <li>
+          <a
+            class="item-sidebar-mobile2"
+            href="#weather"
+            id="weather-btn"
+            onclick="directWeather()"
+          >
+            <i class="bx bx-cloud-snow"></i>
+          </a>
+        </li>
+        <li>
+          <a class="item-sidebar-mobile3" href="#team" onclick="directTeam()">
+            <i class="bx bx-user"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
     <section class="content-section">
       <div id="home"></div>
       <div id="weather">
@@ -66,39 +96,79 @@
             <div id="country" class="country">IN</div>
           </div>
         </div>
-        <div class="top-info">
-          <div class="today" id="current-temp">
-            <div class="img">
-              <img
-                src="http://openweathermap.org/img/wn/10d@2x.png"
-                alt="weather icon"
-                class="w-icon"
-              />
+        <div class="current-info-mobile">
+          <h2>Your Intelligent Weather Assistant</h2>
+          <div class="wrapper">
+            <div class="date-container">
+              <div class="time" id="time-mobile">
+                12:30 <span id="am-pm">PM</span>
+              </div>
+              <div class="date" id="date-mobile">Monday, 25 May</div>
             </div>
-            <div class="other">
-              <div class="day">Today</div>
-              <div class="temp">Night 25.6&#176; C</div>
-              <div class="temp">Day 35.6&#176; C</div>
+            <div class="place-container">
+              <div class="time-zone" id="time-zone-mobile">Asia/Kolkata</div>
+              <div id="country-mobile" class="country">IN</div>
             </div>
           </div>
-          <div class="wind" id="current-weather-items"></div>
-          <div class="sun" id="current-today-items"></div>
+        </div>
+
+        <div class="top-info">
+          <div class="wrapper">
+            <div class="today" id="current-temp">
+              <div class="label">
+                <h5>Weather</h5>
+                <p>What’s the weather</p>
+              </div>
+              <div class="img">
+                <img
+                  src="http://openweathermap.org/img/wn/10d@2x.png"
+                  alt="weather icon"
+                  class="w-icon"
+                />
+              </div>
+              <div class="other">
+                <div class="temp">35.2&#176; C</div>
+                <p class="weather">Clear Sky</p>
+              </div>
+            </div>
+            <div class="humidity" id="current-humidity">
+              <div class="label">
+                <h5>Humidity</h5>
+                <p>Wetness of the atmosphere</p>
+              </div>
+              <div class="img">
+                <img
+                  src="http://openweathermap.org/img/wn/10d@2x.png"
+                  alt="weather icon"
+                  class="w-icon"
+                />
+              </div>
+              <div class="other">
+                <div class="value">30%</div>
+                <p class="desc">Sunny Day</p>
+              </div>
+            </div>
+            <div class="wind" id="current-wind">
+              <div class="label">
+                <h5>Wind Speed</h5>
+                <p>The movement of air</p>
+              </div>
+              <div class="img">
+                <img
+                  src="http://openweathermap.org/img/wn/10d@2x.png"
+                  alt="weather icon"
+                  class="w-icon"
+                />
+              </div>
+              <div class="other">
+                <div class="value">30%</div>
+                <p class="desc">Sunny Day</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="future-forecast">
-          <!-- <div class="today" id="current-temp">
-            <img
-              src="http://openweathermap.org/img/wn/10d@2x.png"
-              alt="weather icon"
-              class="w-icon"
-            />
-            <div class="other">
-              <div class="day">Monday</div>
-              <div class="temp">Night - 25.6&#176; C</div>
-              <div class="temp">Day - 35.6&#176; C</div>
-            </div>
-          </div> -->
-
           <div class="weather-forecast" id="weather-forecast">
             <div class="weather-forecast-item">
               <div class="day">Tue</div>
@@ -107,8 +177,10 @@
                 alt="weather icon"
                 class="w-icon"
               />
-              <div class="temp">Night - 25.6&#176; C</div>
-              <div class="temp">Day - 35.6&#176; C</div>
+              <div class="temp">
+                <span>Night</span> <span>25.6&#176; C</span>
+              </div>
+              <div class="temp"><span>Day</span><span>35.6&#176; C</span></div>
             </div>
             <div class="weather-forecast-item">
               <div class="day">Wed</div>
@@ -117,8 +189,10 @@
                 alt="weather icon"
                 class="w-icon"
               />
-              <div class="temp">Night - 25.6&#176; C</div>
-              <div class="temp">Day - 35.6&#176; C</div>
+              <div class="temp">
+                <span>Night</span> <span>25.6&#176; C</span>
+              </div>
+              <div class="temp"><span>Day</span><span>35.6&#176; C</span></div>
             </div>
             <div class="weather-forecast-item">
               <div class="day">Thur</div>
@@ -127,8 +201,10 @@
                 alt="weather icon"
                 class="w-icon"
               />
-              <div class="temp">Night - 25.6&#176; C</div>
-              <div class="temp">Day - 35.6&#176; C</div>
+              <div class="temp">
+                <span>Night</span> <span>25.6&#176; C</span>
+              </div>
+              <div class="temp"><span>Day</span><span>35.6&#176; C</span></div>
             </div>
             <div class="weather-forecast-item">
               <div class="day">Fri</div>
@@ -137,8 +213,10 @@
                 alt="weather icon"
                 class="w-icon"
               />
-              <div class="temp">Night - 25.6&#176; C</div>
-              <div class="temp">Day - 35.6&#176; C</div>
+              <div class="temp">
+                <span>Night</span> <span>25.6&#176; C</span>
+              </div>
+              <div class="temp"><span>Day</span><span>35.6&#176; C</span></div>
             </div>
             <div class="weather-forecast-item">
               <div class="day">Sat</div>
@@ -147,8 +225,10 @@
                 alt="weather icon"
                 class="w-icon"
               />
-              <div class="temp">Night - 25.6&#176; C</div>
-              <div class="temp">Day - 35.6&#176; C</div>
+              <div class="temp">
+                <span>Night</span> <span>25.6&#176; C</span>
+              </div>
+              <div class="temp"><span>Day</span><span>35.6&#176; C</span></div>
             </div>
           </div>
         </div>
@@ -178,8 +258,11 @@
         });
 
       const itemSidebar1 = document.querySelector(".item-sidebar1");
+      const itemSidebarMobile1 = document.querySelector(".item-sidebar-mobile1");
       const itemSidebar2 = document.querySelector(".item-sidebar2");
+      const itemSidebarMobile2 = document.querySelector(".item-sidebar-mobile2");
       const itemSidebar3 = document.querySelector(".item-sidebar3");
+      const itemSidebarMobile3 = document.querySelector(".item-sidebar-mobile3");
 
       const home = document.querySelector("#home");
       const team = document.querySelector("#team");
@@ -215,6 +298,33 @@
         weather.style.display = "none";
         team.style.display = "block";
       });
+
+      function directHome() {
+        itemSidebarMobile1.classList.toggle("active");
+        itemSidebarMobile2.classList.remove("active");
+        itemSidebarMobile3.classList.remove("active");
+        home.style.display = "block";
+        team.style.display = "none";
+        weather.style.display = "none";
+      }
+
+      function directWeather() {
+        itemSidebarMobile2.classList.toggle("active");
+        itemSidebarMobile1.classList.remove("active");
+        itemSidebarMobile3.classList.remove("active");
+        home.style.display = "none";
+        team.style.display = "none";
+        weather.style.display = "block";
+      }
+
+      function directTeam() {
+        itemSidebarMobile3.classList.toggle("active");
+        itemSidebarMobile1.classList.remove("active");
+        itemSidebarMobile2.classList.remove("active");
+        home.style.display = "none";
+        weather.style.display = "none";
+        team.style.display = "block";
+      }
     </script>
   </body>
 </html>

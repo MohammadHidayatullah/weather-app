@@ -72,3 +72,7 @@
   font-weight: 400;
   color: var(--color-primary);
 }
+
+#team .card {
+  background-color: tomato;
+}

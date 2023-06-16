@@ -1,9 +1,13 @@
 /** @format */
 
 const timeEl = document.getElementById("time");
+const timeMobileEl = document.getElementById("time-mobile");
 const dateEl = document.getElementById("date");
+const dateMobileEl = document.getElementById("date-mobile");
 const timezone = document.getElementById("time-zone");
+const timezoneMobile = document.getElementById("time-zone-mobile");
 const countryEl = document.getElementById("country");
+const countryMobileEl = document.getElementById("country-mobile");
 const weatherForecastEl = document.getElementById("weather-forecast");
 const currentTempEl = document.getElementById("current-temp");
 const currentHumidityEl = document.getElementById("current-humidity");
@@ -53,7 +57,16 @@ setInterval(() => {
     " " +
     `<span id="am-pm">${ampm}</span>`;
 
-  dateEl.innerHTML = days[day] + ", " + date + " " + months[month];
+  timeMobileEl.innerHTML =
+    (hoursIn12HrFormat < 10 ? "0" + hoursIn12HrFormat : hoursIn12HrFormat) +
+    ":" +
+    (minutes < 10 ? "0" + minutes : minutes) +
+    " " +
+    `<span id="am-pm">${ampm}</span>`;
+    
+    dateEl.innerHTML = days[day] + ", " + date + " " + months[month];
+    
+    dateMobileEl.innerHTML = days[day] + ", " + date + " " + months[month];
 }, 1000);
 
 getWeatherData();
@@ -80,7 +93,9 @@ function showWeatherData(data) {
   console.log("humidity", humidity);
 
   timezone.innerHTML = data.timezone;
+  timezoneMobile.innerHTML = data.timezone;
   countryEl.innerHTML = data.lat + "N " + data.lon + "E";
+  countryMobileEl.innerHTML = data.lat + "N " + data.lon + "E";
 
   currentTempEl.innerHTML = `
     <div class="label">

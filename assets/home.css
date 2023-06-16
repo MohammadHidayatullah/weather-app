@@ -1,0 +1,51 @@
+/** @format */
+
+.wrapper {
+  display: flex;
+  gap: 10px;
+  position: relative;
+}
+
+.card {
+  background-color: tomato;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 50px;
+  border: 2px solid black;
+}
+
+.card-bottom {
+  background-color: tomato;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 50px;
+  border: 2px solid black;
+  position: absolute;
+  left: 10px;
+}
+
+.card-bottom-left {
+  background-color: tomato;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 50px;
+  border: 2px solid black;
+  position: absolute;
+  left: 50px;
+}
+
+.card-right {
+  background-color: rgb(31, 22, 20);
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 50px;
+  border: 2px solid black;
+  position: relative;
+}
+
+.card h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+}
+

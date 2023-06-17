@@ -260,7 +260,7 @@ body {
 }
 
 #home {
-  height: fit-content;
+  height: 100vh;
   padding-top: 20px;
 }
 
@@ -270,54 +270,6 @@ body {
 }
 
 #team {
-  height: fit-content;
+  height: 100vh;
   padding-top: 20px;
-}
-
-.bottom-bar {
-  display: none;
-}
-
-@media screen and (max-width: 768px) {
-  .sidebar {
-    display: hidden;
-  }
-  
-  .content-section {
-    width: 100%;
-    left: 0;
-    padding-bottom: 100px;
-  }
-
-  .sidebar {
-    display: none;
-  }
-
-  .bottom-bar {
-    display: block;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: var(--color-white);
-    z-index: 10;
-  }
-
-  .bottom-bar ul {
-    display: flex;
-    justify-content: space-evenly;
-    padding: 5px 20px;
-  }
-
-  .bottom-bar ul li {
-    list-style: none;
-    color: var(--color-default);
-    height: 60px;
-    line-height: 60px;
-    min-width: 50px;
-    font-size: 25px;
-  }
-
-  .bottom-bar ul .active i {
-    color: var(--color-default);
-  }
 }

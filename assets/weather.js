@@ -1,17 +1,13 @@
 /** @format */
 
 const timeEl = document.getElementById("time");
-const timeMobileEl = document.getElementById("time-mobile");
 const dateEl = document.getElementById("date");
-const dateMobileEl = document.getElementById("date-mobile");
+const currentWeatherItemsEl = document.getElementById("current-weather-items");
+const currentTodayItemEl = document.getElementById("current-today-items");
 const timezone = document.getElementById("time-zone");
-const timezoneMobile = document.getElementById("time-zone-mobile");
 const countryEl = document.getElementById("country");
-const countryMobileEl = document.getElementById("country-mobile");
 const weatherForecastEl = document.getElementById("weather-forecast");
 const currentTempEl = document.getElementById("current-temp");
-const currentHumidityEl = document.getElementById("current-humidity");
-const currentWindEl = document.getElementById("current-wind");
 
 const days = [
   "Sunday",
@@ -38,7 +34,7 @@ const months = [
   "Dec",
 ];
 
-const API_KEY = "56a2c31c64a6247e0e851f88799c0dd5";
+const API_KEY = "49cc8c821cd2aff9af04c9f98c36eb74";
 
 setInterval(() => {
   const time = new Date();
@@ -57,16 +53,7 @@ setInterval(() => {
     " " +
     `<span id="am-pm">${ampm}</span>`;
 
-  timeMobileEl.innerHTML =
-    (hoursIn12HrFormat < 10 ? "0" + hoursIn12HrFormat : hoursIn12HrFormat) +
-    ":" +
-    (minutes < 10 ? "0" + minutes : minutes) +
-    " " +
-    `<span id="am-pm">${ampm}</span>`;
-    
-    dateEl.innerHTML = days[day] + ", " + date + " " + months[month];
-    
-    dateMobileEl.innerHTML = days[day] + ", " + date + " " + months[month];
+  dateEl.innerHTML = days[day] + ", " + date + " " + months[month];
 }, 1000);
 
 getWeatherData();
@@ -79,96 +66,71 @@ function getWeatherData() {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log("data", data);
+        console.log(data);
         showWeatherData(data);
       });
   });
 }
 
 function showWeatherData(data) {
-  let { humidity, pressure, temp, sunset, wind_speed, weather } = data.current;
-
-  const tempInt = Math.round(temp);
-
-  console.log("humidity", humidity);
+  let { humidity, pressure, sunrise, sunset, wind_speed } = data.current;
 
   timezone.innerHTML = data.timezone;
-  timezoneMobile.innerHTML = data.timezone;
   countryEl.innerHTML = data.lat + "N " + data.lon + "E";
-  countryMobileEl.innerHTML = data.lat + "N " + data.lon + "E";
 
-  currentTempEl.innerHTML = `
-    <div class="label">
-      <h5>Weather</h5>
-      <p>What’s the weather</p>
+  currentWeatherItemsEl.innerHTML = `
+  <div class="weather-item">
+      <div>Humidity</div>
+      <div>${humidity}%</div>
+  </div>
+    <div class="weather-item">
+        <div>Pressure</div>
+        <div>${pressure}</div>
     </div>
-    <div class="img">
-      <img src="http://openweathermap.org/img/wn//${weather[0].icon}@4x.png" alt="weather icon" class="w-icon">
-      </div>
-    <div class="other">
-      <div class="temp">${tempInt}&#176;C</div>
-      <p class="weather">${weather[0].description}</p>
+    <div class="weather-item">
+        <div>Wind Speed</div>
+        <div>${wind_speed}</div>
     </div>
     `;
 
-  currentHumidityEl.innerHTML = `
-  <div class="label">
-    <h5>Humidity</h5>
-    <p>Wetness of the atmosphere</p>
-  </div>
-  <div class="img">
-    <img
-      src="http://openweathermap.org/img/wn//${weather[0].icon}@4x.png" alt="weather icon" class="w-icon""
-      alt="weather icon"
-      class="w-icon"
-    />
-  </div>
-  <div class="other">
-    <div class="value">
-      ${humidity}%
-    </div>
-    <p class="desc">${weather[0].description}</p>
-  </div>
-  `;
-
-  currentWindEl.innerHTML = `
-  <div class="label">
-    <h5>Wind Speed</h5>
-    <p>Speed of the wind</p>
-  </div>
-  <div class="img">
-    <img
-      src="http://openweathermap.org/img/wn//${weather[0].icon}@4x.png"
-      alt="weather icon"
-      class="w-icon"
-    />
-  </div>
-  <div class="other">
-    <div class="value">
-      ${wind_speed}km/h
-    </div>
-    <p class="desc">${weather[0].description}</p>
-  </div>
-  `;
+  currentTodayItemEl.innerHTML = `
+<div class="weather-item">
+    <div>Sunrise</div>
+    <div>${window.moment(sunrise * 1000).format("HH:mm a")}</div>
+</div>
+<div class="weather-item">
+    <div>Sunset</div>
+    <div>${window.moment(sunset * 1000).format("HH:mm a")}</div>
+</div>
+`;
 
   let otherDayForcast = "";
   data.daily.forEach((day, idx) => {
-    console.log("day", day);
-    if (idx >= 1 && idx < 7) {
+    if (idx == 0) {
+      currentTempEl.innerHTML = `
+      <div class="img">
+            <img src="http://openweathermap.org/img/wn//${
+              day.weather[0].icon
+            }@4x.png" alt="weather icon" class="w-icon">
+            </div>
+            <div class="other">
+                <div class="day">Today</div>
+                <div class="temp">Night ${day.temp.night}&#176;C</div>
+                <div class="temp">Day ${day.temp.day}&#176;C</div>
+            </div>
+            
+            `;
+    } else {
       otherDayForcast += `
             <div class="weather-forecast-item">
                 <div class="day">${window
                   .moment(day.dt * 1000)
-                  .format("dddd")}</div>
+                  .format("ddd")}</div>
                 <img src="http://openweathermap.org/img/wn/${
                   day.weather[0].icon
                 }@2x.png" alt="weather icon" class="w-icon">
-                <div class="temp"><span>Night</span><span>${Math.round(
-                  day.temp.night
-                )}&#176;C</span></div>
-                <div class="temp"><span>Day</span><span>${Math.round(
-                  day.temp.day
-                )}&#176;C</span></div>
+                <div class="temp">Night - ${day.temp.night}&#176;C</div>
+                <div class="temp">Day - ${day.temp.day}&#176;C</div>
             </div>
             
             `;

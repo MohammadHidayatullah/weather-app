@@ -260,7 +260,7 @@ body {
 }
 
 #home {
-  height: 100vh;
+  height: fit-content;
   padding-top: 20px;
 }
 
@@ -270,7 +270,7 @@ body {
 }
 
 #team {
-  height: 100vh;
+  height: fit-content;
   padding-top: 20px;
 }
 

@@ -1,0 +1,112 @@
+/** @format */
+
+:root {
+  --color-default: #fa7f29;
+  --color-second: #575757;
+  --color-white: #fff;
+  --color-body: #1a2841;
+  --color-light: #e0e0e0;
+}
+
+#home .wrapper {
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#home .left {
+  width: 50%;
+}
+
+#home .left .action {
+  background-color: var(--color-light);
+  padding: 20px;
+  border-radius: 100px;
+  position: relative;
+}
+
+#home .left .action h6 {
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--color-default);
+}
+
+#home .left .action a {
+  background-color: var(--color-default);
+  color: var(--color-white);
+  font-weight: 500;
+  font-size: 18px;
+  padding: 20px;
+  border-radius: 100px;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-decoration: none;
+}
+
+#home .left .action a:hover {
+  background-color: var(--color-second);
+}
+
+#home .left .title {
+  font-weight: 700;
+  font-size: 72px;
+}
+
+#home .left .title .first {
+  color: var(--color-default);
+}
+
+#home .left .title .second {
+  color: var(--color-second);
+}
+
+#home .left .title .desc {
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--color-second);
+}
+
+#home .right {
+  background-image: url("./images/background-1.jpg");
+  background-size: cover;
+  width: 50%;
+  border-radius: 100px;
+  position: relative;
+}
+
+#home .right .weather {
+  background-color: var(--color-light);
+  padding: 40px;
+  width: fit-content;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+#home .right .weather .city {
+  font-weight: 700;
+  font-size: 36px;
+  color: var(--color-second);
+}
+
+#home .right .weather .value {
+  font-weight: 700;
+  font-size: 128px;
+  color: var(--color-second);
+}
+
+#home .right .weather span {
+  font-weight: 700;
+  font-size: 48.3294px;
+  color: var(--color-second);
+}
+
+#home .right .weather .desc {
+  font-weight: 400;
+  font-size: 48.3921px;
+  color: var(--color-second);
+}

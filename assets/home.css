@@ -1,5 +1,6 @@
 /** @format */
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 :root {
   --color-default: #fa7f29;
   --color-second: #575757;
@@ -8,9 +9,18 @@
   --color-light: #e0e0e0;
 }
 
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  color: var(--color-body);
+}
+
 #home .wrapper {
   padding-top: 20px;
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
@@ -19,7 +29,7 @@
 }
 
 #home .left .action {
-  background-color: var(--color-light);
+  background-color: var(--color-white);
   padding: 20px;
   border-radius: 100px;
   position: relative;
@@ -69,15 +79,16 @@
 }
 
 #home .right {
-  background-image: url("./images/background-1.jpg");
+  background-image: url("./images/home.jpeg");
   background-size: cover;
   width: 50%;
   border-radius: 100px;
   position: relative;
+  filter: drop-shadow(22.2783px 74.2609px 215.356px rgba(161, 35, 35, 0.2));
 }
 
 #home .right .weather {
-  background-color: var(--color-light);
+  background-color: var(--color-white);
   padding: 40px;
   width: fit-content;
   border-radius: 100px;
@@ -109,4 +120,62 @@
   font-weight: 400;
   font-size: 48.3921px;
   color: var(--color-second);
+}
+
+@media screen and (max-width: 1200px) {
+  #home .left .title {
+    font-size: 52px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #home .wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  #home .left {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  #home .left .action {
+    margin-top: 10px;
+  }
+
+  #home .left .action h6 {
+    font-size: 12px;
+  }
+
+  #home .left .action a {
+    font-size: 12px;
+  }
+
+  #home .left .title {
+    font-weight: 700;
+    font-size: 48px;
+    text-align: center;
+  }
+
+  #home .left .title .desc {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  #home .right {
+    width: 100%;
+    border-radius: 100px;
+  }
+
+  #home .right .weather {
+    position: relative;
+    background-color: #fa7f29;
+    opacity: 0.5;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

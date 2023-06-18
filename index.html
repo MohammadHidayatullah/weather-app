@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="assets/style.css" />
     <link rel="stylesheet" href="assets/weather.css" />
     <link rel="stylesheet" href="assets/team.css" />
-    <link rel="stylesheet" href="assets/home.css">
+    <link rel="stylesheet" href="assets/home.css" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
@@ -45,12 +45,8 @@
         </li>
 
         <li class="profile">
-          <div class="profile_details">
-            <div class="profile_content">
-              <div class="name">Team</div>
-              <div class="designation">Four</div>
-            </div>
-          </div>
+          <p>Team</p>
+          <p>Four</p>
         </li>
       </ul>
     </div>
@@ -84,7 +80,7 @@
       </ul>
     </div>
     <section class="content-section">
-      <div id="home"></div>
+      <div id="home">Home</div>
       <div id="weather">
         <div class="current-info">
           <div class="date-container">
@@ -115,17 +111,17 @@
 
         <div class="top-info">
           <div class="wrapper">
+            <div id="condition-icon">
+              <img
+                src="http://openweathermap.org/img/wn/10d@4x.png"
+                alt="weather icon"
+                class="w-icon"
+              />
+            </div>
             <div class="today" id="current-temp">
               <div class="label">
                 <h5>Weather</h5>
                 <p>What’s the weather</p>
-              </div>
-              <div class="img">
-                <img
-                  src="http://openweathermap.org/img/wn/10d@2x.png"
-                  alt="weather icon"
-                  class="w-icon"
-                />
               </div>
               <div class="other">
                 <div class="temp">35.2&#176; C</div>
@@ -137,13 +133,6 @@
                 <h5>Humidity</h5>
                 <p>Wetness of the atmosphere</p>
               </div>
-              <div class="img">
-                <img
-                  src="http://openweathermap.org/img/wn/10d@2x.png"
-                  alt="weather icon"
-                  class="w-icon"
-                />
-              </div>
               <div class="other">
                 <div class="value">30%</div>
                 <p class="desc">Sunny Day</p>
@@ -153,13 +142,6 @@
               <div class="label">
                 <h5>Wind Speed</h5>
                 <p>The movement of air</p>
-              </div>
-              <div class="img">
-                <img
-                  src="http://openweathermap.org/img/wn/10d@2x.png"
-                  alt="weather icon"
-                  class="w-icon"
-                />
               </div>
               <div class="other">
                 <div class="value">30%</div>
@@ -259,11 +241,17 @@
         });
 
       const itemSidebar1 = document.querySelector(".item-sidebar1");
-      const itemSidebarMobile1 = document.querySelector(".item-sidebar-mobile1");
+      const itemSidebarMobile1 = document.querySelector(
+        ".item-sidebar-mobile1"
+      );
       const itemSidebar2 = document.querySelector(".item-sidebar2");
-      const itemSidebarMobile2 = document.querySelector(".item-sidebar-mobile2");
+      const itemSidebarMobile2 = document.querySelector(
+        ".item-sidebar-mobile2"
+      );
       const itemSidebar3 = document.querySelector(".item-sidebar3");
-      const itemSidebarMobile3 = document.querySelector(".item-sidebar-mobile3");
+      const itemSidebarMobile3 = document.querySelector(
+        ".item-sidebar-mobile3"
+      );
 
       const home = document.querySelector("#home");
       const team = document.querySelector("#team");
@@ -272,6 +260,18 @@
       home.style.display = "block";
       team.style.display = "none";
       weather.style.display = "none";
+
+      function directTeam() {
+        itemSidebarMobile3.classList.toggle("active");
+        itemSidebar2.classList.toggle("active");
+        itemSidebarMobile1.classList.remove("active");
+        itemSidebarMobile2.classList.remove("active");
+        itemSidebar1.classList.remove("active");
+        itemSidebar3.classList.remove("active");
+        home.style.display = "none";
+        weather.style.display = "none";
+        team.style.display = "block";
+      }
 
       itemSidebar1.addEventListener("click", function () {
         itemSidebar1.classList.toggle("active");
@@ -316,15 +316,6 @@
         home.style.display = "none";
         team.style.display = "none";
         weather.style.display = "block";
-      }
-
-      function directTeam() {
-        itemSidebarMobile3.classList.toggle("active");
-        itemSidebarMobile1.classList.remove("active");
-        itemSidebarMobile2.classList.remove("active");
-        home.style.display = "none";
-        weather.style.display = "none";
-        team.style.display = "block";
       }
     </script>
   </body>

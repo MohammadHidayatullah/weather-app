@@ -12,6 +12,7 @@ const weatherForecastEl = document.getElementById("weather-forecast");
 const currentTempEl = document.getElementById("current-temp");
 const currentHumidityEl = document.getElementById("current-humidity");
 const currentWindEl = document.getElementById("current-wind");
+const conditionEl = document.getElementById("condition-icon");
 
 const days = [
   "Sunday",
@@ -63,10 +64,10 @@ setInterval(() => {
     (minutes < 10 ? "0" + minutes : minutes) +
     " " +
     `<span id="am-pm">${ampm}</span>`;
-    
-    dateEl.innerHTML = days[day] + ", " + date + " " + months[month];
-    
-    dateMobileEl.innerHTML = days[day] + ", " + date + " " + months[month];
+
+  dateEl.innerHTML = days[day] + ", " + date + " " + months[month];
+
+  dateMobileEl.innerHTML = days[day] + ", " + date + " " + months[month];
 }, 1000);
 
 getWeatherData();
@@ -82,29 +83,39 @@ function getWeatherData() {
         console.log("data", data);
         showWeatherData(data);
       });
+
+    fetch(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${API_KEY}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("city", data);
+        showCityData(data);
+      });
   });
 }
 
 function showWeatherData(data) {
-  let { humidity, pressure, temp, sunset, wind_speed, weather } = data.current;
+  let { humidity, temp, wind_speed, weather } = data.current;
 
   const tempInt = Math.round(temp);
 
   console.log("humidity", humidity);
 
-  timezone.innerHTML = data.timezone;
-  timezoneMobile.innerHTML = data.timezone;
-  countryEl.innerHTML = data.lat + "N " + data.lon + "E";
-  countryMobileEl.innerHTML = data.lat + "N " + data.lon + "E";
+  // timezone.innerHTML = data.timezone;
+  // timezoneMobile.innerHTML = data.timezone;
+  // countryEl.innerHTML = data.lat + "N " + data.lon + "E";
+  // countryMobileEl.innerHTML = data.lat + "N " + data.lon + "E";
+
+  conditionEl.innerHTML = `
+  <img src="http://openweathermap.org/img/wn//${weather[0].icon}@4x.png" alt="weather icon" class="w-icon">
+  `;
 
   currentTempEl.innerHTML = `
     <div class="label">
       <h5>Weather</h5>
       <p>What’s the weather</p>
     </div>
-    <div class="img">
-      <img src="http://openweathermap.org/img/wn//${weather[0].icon}@4x.png" alt="weather icon" class="w-icon">
-      </div>
     <div class="other">
       <div class="temp">${tempInt}&#176;C</div>
       <p class="weather">${weather[0].description}</p>
@@ -115,13 +126,6 @@ function showWeatherData(data) {
   <div class="label">
     <h5>Humidity</h5>
     <p>Wetness of the atmosphere</p>
-  </div>
-  <div class="img">
-    <img
-      src="http://openweathermap.org/img/wn//${weather[0].icon}@4x.png" alt="weather icon" class="w-icon""
-      alt="weather icon"
-      class="w-icon"
-    />
   </div>
   <div class="other">
     <div class="value">
@@ -135,13 +139,6 @@ function showWeatherData(data) {
   <div class="label">
     <h5>Wind Speed</h5>
     <p>Speed of the wind</p>
-  </div>
-  <div class="img">
-    <img
-      src="http://openweathermap.org/img/wn//${weather[0].icon}@4x.png"
-      alt="weather icon"
-      class="w-icon"
-    />
   </div>
   <div class="other">
     <div class="value">
@@ -176,4 +173,12 @@ function showWeatherData(data) {
   });
 
   weatherForecastEl.innerHTML = otherDayForcast;
+}
+
+function showCityData(data) {
+  let { name, sys, coord } = data;
+  timezone.innerHTML = `${name}, ${sys.country}`;
+  timezoneMobile.innerHTML = `${name}, ${sys.country}`;
+ countryEl.innerHTML = coord.lat + "N " + coord.lon + "E";
+  countryMobileEl.innerHTML = coord.lat + "N " + coord.lon + "E";
 }

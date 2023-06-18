@@ -2,8 +2,8 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 :root {
-  --color-primary: #fa7f29;
-  --color-second: #4e4e4e;
+  --color-default: #fa7f29;
+  --color-second: #575757;
   --color-white: #fff;
   --color-body: #1a2841;
   --color-light: #e0e0e0;
@@ -26,7 +26,7 @@
 .current-info h2 {
   font-weight: 700;
   font-size: 24px;
-  color: var(--color-primary);
+  color: var(--color-default);
 }
 
 .date-container {
@@ -36,7 +36,7 @@
 .date-container .time,
 .date-container .time > * {
   font-size: 14px;
-  color: var(--color-primary);
+  color: var(--color-default);
 }
 
 .date-container #am-pm {
@@ -46,7 +46,7 @@
 
 .date-container .date {
   font-size: 18px;
-  color: var(--color-primary);
+  color: var(--color-default);
 }
 
 .place-container {
@@ -56,13 +56,13 @@
 .place-container .time-zone {
   font-size: 14px;
   font-weight: 400;
-  color: var(--color-primary);
+  color: var(--color-default);
 }
 
 .place-container .country {
   font-size: 18px;
   font-weight: 400;
-  color: var(--color-primary);
+  color: var(--color-default);
 }
 
 .top-info {
@@ -72,10 +72,21 @@
 }
 
 .top-info .wrapper {
-  width: 80%;
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
+}
+
+#condition-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#condition-icon img {
+  height: 200px;
+  width: 200px;
 }
 
 .wind .weather-item {
@@ -87,7 +98,7 @@
   display: flex;
   flex-direction: column;
   background: var(--color-white);
-  border: var(--color-primary) 1px solid;
+  border: var(--color-default) 1px solid;
   padding: 20px;
   border-radius: 10px;
 }
@@ -114,7 +125,7 @@
 .today .label h5 {
   font-weight: 700;
   font-size: 18px;
-  background-color: var(--color-primary);
+  background-color: var(--color-default);
   padding: 5px 15px;
   color: var(--color-white);
   border-radius: 8px;
@@ -176,7 +187,7 @@
   font-weight: 700;
   width: fit-content;
   font-size: 18px;
-  background-color: var(--color-primary);
+  background-color: var(--color-default);
   padding: 5px 15px;
   color: var(--color-white);
   border-radius: 8px;
@@ -186,15 +197,6 @@
   font-weight: 300;
   font-size: 12px;
   color: var(--color-second);
-}
-
-.humidity .img img {
-  position: absolute;
-  top: -80px;
-  right: -80px;
-  width: 200px;
-  height: 200px;
-  padding: 10px;
 }
 
 .humidity .other {
@@ -233,7 +235,7 @@
 .wind h5 {
   font-weight: 700;
   font-size: 18px;
-  background-color: var(--color-primary);
+  background-color: var(--color-default);
   padding: 5px 15px;
   color: var(--color-white);
   border-radius: 8px;
@@ -243,15 +245,6 @@
   font-weight: 300;
   font-size: 12px;
   color: var(--color-second);
-}
-
-.wind .img img {
-  position: absolute;
-  top: -80px;
-  right: -80px;
-  width: 200px;
-  height: 200px;
-  padding: 10px;
 }
 
 .wind .other {
@@ -277,7 +270,7 @@
 .future-forecast .weather-forecast {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
@@ -287,16 +280,16 @@
   align-items: center;
   justify-content: center;
   width: fit-content;
-  padding: 20px;
-  border-radius: 20px;
+  padding: 38px;
+  border-radius: 15px;
   background: var(--color-light);
   margin-bottom: 20px;
 }
 
 .weather-forecast .weather-forecast-item .day {
   padding: 10px 15px;
-  background: var(--color-primary);
-  border-radius: 50px;
+  background: var(--color-default);
+  border-radius: 10px;
   text-align: center;
   color: var(--color-white);
   font-weight: 700;
@@ -328,7 +321,7 @@
   .current-info-mobile h2 {
     font-size: 24px;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-default);
     margin-bottom: 20px;
     text-align: center;
   }
@@ -337,6 +330,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  #condition-icon {
+    width: 100%;
   }
 
   .today {
@@ -352,13 +349,6 @@
 
   .today p {
     margin-top: 20px;
-  }
-
-  .today .img img {
-    position: relative;
-    top: 0;
-    right: 0;
-    padding: 0;
   }
 
   .today .other {
@@ -383,13 +373,6 @@
     margin-top: 20px;
   }
 
-  .humidity .img img {
-    position: relative;
-    top: 0;
-    right: 0;
-    padding: 0;
-  }
-
   .humidity .other .value {
     text-align: center;
   }
@@ -407,13 +390,6 @@
     top: 0;
     left: 0;
     border-radius: 0 20px !important;
-  }
-
-  .wind .img img {
-    position: relative;
-    top: 0;
-    right: 0;
-    padding: 0;
   }
 
   .wind .other .value {

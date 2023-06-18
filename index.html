@@ -23,21 +23,21 @@
       </div>
       <ul class="nav-list">
         <li>
-          <a class="item-sidebar1 active" href="#home">
+          <a class="item-sidebar1 active" href="#home" onclick="directHome()">
             <i class="bx bx-grid-alt" id="home-btn"></i>
             <span class="link_name">Home</span>
           </a>
           <span class="tooltip">Home</span>
         </li>
         <li>
-          <a class="item-sidebar2" href="#weather" id="weather-btn">
+          <a class="item-sidebar2" href="#weather" id="weather-btn" onclick="directWeather()">
             <i class="bx bx-cloud-snow"></i>
             <span class="link_name">Weather</span>
           </a>
           <span class="tooltip">Weather</span>
         </li>
         <li>
-          <a class="item-sidebar3" href="#team">
+          <a class="item-sidebar3" href="#team" onclick="directTeam()">
             <i class="bx bx-user"></i>
             <span class="link_name">Team Member</span>
           </a>
@@ -273,37 +273,13 @@
         team.style.display = "block";
       }
 
-      itemSidebar1.addEventListener("click", function () {
-        itemSidebar1.classList.toggle("active");
-        itemSidebar2.classList.remove("active");
-        itemSidebar3.classList.remove("active");
-        home.style.display = "block";
-        team.style.display = "none";
-        weather.style.display = "none";
-      });
-
-      itemSidebar2.addEventListener("click", function () {
-        itemSidebar2.classList.toggle("active");
-        itemSidebar1.classList.remove("active");
-        itemSidebar3.classList.remove("active");
-        home.style.display = "none";
-        team.style.display = "none";
-        weather.style.display = "block";
-      });
-
-      itemSidebar3.addEventListener("click", function () {
-        itemSidebar3.classList.toggle("active");
-        itemSidebar1.classList.remove("active");
-        itemSidebar2.classList.remove("active");
-        home.style.display = "none";
-        weather.style.display = "none";
-        team.style.display = "block";
-      });
-
       function directHome() {
         itemSidebarMobile1.classList.toggle("active");
         itemSidebarMobile2.classList.remove("active");
         itemSidebarMobile3.classList.remove("active");
+        itemSidebar1.classList.toggle("active");
+        itemSidebar2.classList.remove("active");
+        itemSidebar3.classList.remove("active");
         home.style.display = "block";
         team.style.display = "none";
         weather.style.display = "none";
@@ -313,6 +289,9 @@
         itemSidebarMobile2.classList.toggle("active");
         itemSidebarMobile1.classList.remove("active");
         itemSidebarMobile3.classList.remove("active");
+        itemSidebar2.classList.toggle("active");
+        itemSidebar1.classList.remove("active");
+        itemSidebar3.classList.remove("active");
         home.style.display = "none";
         team.style.display = "none";
         weather.style.display = "block";

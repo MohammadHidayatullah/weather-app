@@ -20,7 +20,7 @@
 .current-info {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 65px;
+  margin: 20px 0px 65px 0px;
 }
 
 .current-info h2 {
@@ -79,9 +79,14 @@
 }
 
 #condition-icon {
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 100%;
+  background: rgba(217, 217, 217, 0.56);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
+  margin-bottom: 10px;
 }
 
 #condition-icon img {
@@ -114,9 +119,10 @@
   align-items: start;
   justify-content: center;
   border-radius: 10px;
-  padding: 15px;
+  padding: 15px 100px 15px 15px;
   border-radius: 10px;
-  background: var(--color-light);
+  background: rgba(217, 217, 217, 0.56);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
   gap: 20px;
   position: relative;
   margin-bottom: 20px;
@@ -135,6 +141,7 @@
   font-weight: 300;
   font-size: 12px;
   color: var(--color-second);
+  margin-top: 10px;
 }
 
 .today .img img {
@@ -147,16 +154,12 @@
 }
 
 .today .other {
-  display: flex;
-  gap: 10px;
-  align-items: center;
   width: 100%;
   margin-top: 10px;
 }
 
 .today .temp {
   padding: 2px;
-  opacity: 0.9;
   color: var(--color-second);
   font-weight: 500;
   font-size: 42px;
@@ -167,7 +170,6 @@
   font-weight: 400;
   font-size: 16px;
   color: var(--color-second);
-  text-align: end;
 }
 
 .humidity {
@@ -176,9 +178,10 @@
   align-items: start;
   justify-content: space-between;
   border-radius: 10px;
-  padding: 20px;
+  padding: 15px 100px 15px 15px;
   border-radius: 10px;
-  background: var(--color-light);
+  background: rgba(217, 217, 217, 0.56);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
   position: relative;
   margin-bottom: 20px;
 }
@@ -197,6 +200,7 @@
   font-weight: 300;
   font-size: 12px;
   color: var(--color-second);
+  margin-top: 10px;
 }
 
 .humidity .other {
@@ -206,7 +210,6 @@
 
 .humidity .value {
   padding: 2px;
-  opacity: 0.9;
   color: var(--color-second);
   font-weight: 500;
   font-size: 42px;
@@ -225,9 +228,10 @@
   align-items: start;
   justify-content: space-between;
   border-radius: 10px;
-  padding: 20px;
+  padding: 15px 100px 15px 15px;
   border-radius: 10px;
-  background: var(--color-light);
+  background: rgba(217, 217, 217, 0.56);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
   position: relative;
   margin-bottom: 20px;
 }
@@ -245,6 +249,7 @@
   font-weight: 300;
   font-size: 12px;
   color: var(--color-second);
+  margin-top: 10px;
 }
 
 .wind .other {
@@ -254,7 +259,6 @@
 
 .wind .value {
   padding: 2px;
-  opacity: 0.9;
   color: var(--color-second);
   font-weight: 500;
   font-size: 42px;
@@ -265,6 +269,13 @@
   font-weight: 400;
   font-size: 16px;
   color: var(--color-second);
+}
+
+.future-forecast h5 {
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--color-default);
+  margin: 32px 0;
 }
 
 .future-forecast .weather-forecast {
@@ -283,6 +294,8 @@
   padding: 38px;
   border-radius: 15px;
   background: var(--color-light);
+  background: rgba(217, 217, 217, 0.56);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
   margin-bottom: 20px;
 }
 
@@ -333,11 +346,13 @@
   }
 
   #condition-icon {
-    width: 100%;
+    margin: 20px auto;
   }
 
   .today {
     width: 100%;
+    text-align: center;
+    padding: 20px;
   }
 
   .today h5 {
@@ -348,7 +363,7 @@
   }
 
   .today p {
-    margin-top: 20px;
+    margin-top: 20px !important;
   }
 
   .today .other {
@@ -360,6 +375,7 @@
 
   .humidity {
     width: 100%;
+    padding: 20px;
   }
 
   .humidity h5 {
@@ -383,6 +399,7 @@
 
   .wind {
     width: 100%;
+    padding: 20px;
   }
 
   .wind h5 {
@@ -392,11 +409,19 @@
     border-radius: 0 20px !important;
   }
 
+  .wind p {
+    margin-top: 20px;
+  }
+
   .wind .other .value {
     text-align: center;
   }
 
   .wind .other .desc {
+    text-align: center;
+  }
+
+  .future-forecast h5 {
     text-align: center;
   }
 

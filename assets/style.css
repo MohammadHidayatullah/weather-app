@@ -225,7 +225,7 @@ body {
 
 .content-section {
   position: relative;
-  background-color: var(--color-white);
+  background-color: #CFF1FC;
   min-height: 100vh;
   top: 0;
   left: 78px;
@@ -233,6 +233,17 @@ body {
   transition: all 0.5s ease;
   z-index: 2;
   padding: 0 20px;
+  position: relative;
+}
+
+.content-section .vector {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: auto;
+  width: 100%;
+  z-index: -1;
 }
 
 .content-section .text {

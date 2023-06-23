@@ -266,11 +266,11 @@
 
       function directTeam() {
         itemSidebarMobile3.classList.toggle("active");
-        itemSidebar2.classList.toggle("active");
+        itemSidebar2.classList.remove("active");
         itemSidebarMobile1.classList.remove("active");
         itemSidebarMobile2.classList.remove("active");
         itemSidebar1.classList.remove("active");
-        itemSidebar3.classList.remove("active");
+        itemSidebar3.classList.toggle("active");
         home.style.display = "none";
         weather.style.display = "none";
         team.style.display = "block";
